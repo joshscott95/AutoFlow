@@ -2,8 +2,8 @@
 
 Team:
 
-* Person 1 - Which microservice?
-* Person 2 - Which microservice?
+* Adam Kmak - Automobile Services?
+* Joshua S - Automobile Sales?
 
 ## Design
 
