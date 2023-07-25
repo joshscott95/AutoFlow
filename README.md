@@ -2,8 +2,8 @@
 
 Team:
 
-* Adam Kmak - Automobile Services?
-* Joshua S - Automobile Sales?
+* Adam Kmak - Automobile Services
+* Joshua S - Automobile Sales
 
 ## Design
 
