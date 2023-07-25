@@ -15,11 +15,11 @@ class AutomobileVO(models.Model):
 
 class Appointment(models.Model):
 
-    created = "Created"
-    finished = "Finished"
-    canceled = "Canceled"
+    created = "created"
+    finished = "finished"
+    canceled = "canceled"
 
-    status_choices = [(created, "Created"), (finished, "Finished"), (canceled, "Canceled"),]
+    status_choices = [(created, "created"), (finished, "finished"), (canceled, "canceled"),]
 
     date_time = models.DateTimeField()
     reason = models.TextField()
