@@ -13,6 +13,9 @@ class AutomobileVO(models.Model):
     vin = models.CharField(max_length=17, unique=True)
     sold = models.BooleanField()
 
+    def __str__(self):
+        return f'VIN: {self.vin}'
+
 class Appointment(models.Model):
 
     created = "created"
