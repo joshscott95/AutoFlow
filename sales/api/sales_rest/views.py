@@ -81,7 +81,7 @@ def salesperson_detail_view(request, id):
             salesperson.delete()
             return JsonResponse(
                 {"message": "Salesperson deleted successfully"},
-                status=204
+                status=200
             )
         except Salesperson.DoesNotExist:
             return JsonResponse({"message": "Salesperson does not exist"}, status=404)
