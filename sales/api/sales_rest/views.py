@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from django.db import transaction
 from common.json import ModelEncoder
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.http import require_http_methods
 from django.core.exceptions import ObjectDoesNotExist
+import requests
 import json
 from .models import Salesperson, Customer, Sale, AutomobileVO
 # Create your views here.
@@ -145,6 +147,7 @@ def customer_detail_view(request, id):
 
 
 @require_http_methods(["GET", "POST"])
+@transaction.atomic 
 def sales_list_view(request):
     if request.method == "GET":
         sales = Sale.objects.all()
@@ -168,12 +171,20 @@ def sales_list_view(request):
 
             # Create the Sale instance
             sale = Sale.objects.create(**content)
+            # Set 'sold' attritbute to True 
+            response = requests.put(
+                f'http://inventory-api:8000/api/automobiles/{auto.vin}/',
+                json={'sold': True}
+            )
+            if response.status_code != 200:
+                raise Exception("Failed to update the Automobile's sold status")
 
             return JsonResponse(
                 sale,
                 encoder=SaleEncoder,
                 safe=False,
             )
+
 
         except AutomobileVO.DoesNotExist:
             return JsonResponse(

@@ -6,8 +6,16 @@ import TechnicianList from './TechnicianList'
 import TechnicianForm from './TechnicianForm'
 import AppointmentList from './AppointmentList'
 import AppointmentForm from './AppointmentForm'
+import SalesPersonForm from './SalesPersonForm';
+import SalesPersonList from './SalesPersonsList';
+import CustomerForm from './CustomerForm';
+import CustomerList from './CustomerList';
+import SaleForm from './SaleForm';
+import SaleList from './SaleList';
+import SalesPersonHistory from './SalesPersonHistory';
 
-function App(props) {
+
+function App() {
   const [techs, setTechs] = useState([]);
   const [appts, setAppts] = useState([]);
 
@@ -38,6 +46,7 @@ function App(props) {
     getAppts();
   }, []);
 
+
   return (
     <BrowserRouter>
       <Nav />
@@ -52,6 +61,14 @@ function App(props) {
             <Route index element={<AppointmentList appts={appts} getAppts={getAppts} />} />
             <Route path="create/" element={<AppointmentForm techs={techs} getAppts={getAppts} />} />
           </Route>
+          <Route path="/salespeople-create" element={<SalesPersonForm />} />
+          <Route path="/salespeople-list" element={<SalesPersonList />} />
+          <Route path="/customer-form" element={<CustomerForm />} />
+          <Route path="/customer-list" element={<CustomerList />} />
+          <Route path="/sale-form" element={<SaleForm />} />
+          <Route path="/sale-list" element={<SaleList />} />
+          <Route path="/salesperson-history" element={<SalesPersonHistory />} />
+
         </Routes>
       </div>
     </BrowserRouter>
