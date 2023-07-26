@@ -10,25 +10,25 @@ function AppointmentList(props) {
       props.getAppts()
     }}
 
-    async function finishAppt(event) {
-      const id=event.target.value
-      const locationUrl = `http://localhost:8080/api/appointments/${id}/finish/`;
-      const fetchConfig = {
+  async function finishAppt(event) {
+    const id=event.target.value
+    const locationUrl = `http://localhost:8080/api/appointments/${id}/finish/`;
+    const fetchConfig = {
         method: "put"}
-      const response = await fetch(locationUrl, fetchConfig);
-      if (response.ok) {
+    const response = await fetch(locationUrl, fetchConfig);
+    if (response.ok) {
         props.getAppts()
       }}
 
-    const appointments = props.appts.filter(appt => appt.status == "created")
-    for(const appointment of appointments){
-      let tempDate = new Date(appointment.date_time)
-      appointment["date"] = `${tempDate.getMonth()+1}/${tempDate.getDate()}/${tempDate.getFullYear()}`
-      // Display time in MST
-      appointment["time"] = `${tempDate.toLocaleTimeString('en-US')}`
+  const appointments = props.appts.filter(appt => appt.status == "created")
+  for(const appointment of appointments){
+    let tempDate = new Date(appointment.date_time)
+    appointment["date"] = `${tempDate.getMonth()+1}/${tempDate.getDate()}/${tempDate.getFullYear()}`
+    // Display time in MST
+    appointment["time"] = `${tempDate.toLocaleTimeString('en-US')}`
     }
 
-    return (
+  return (
     <div className="container-fluid">
       <h1>Service Appointments</h1>
       <table className="table table-striped">
@@ -61,7 +61,7 @@ function AppointmentList(props) {
           })}
         </tbody>
       </table>
-      </div>
+    </div>
     )
   };
 

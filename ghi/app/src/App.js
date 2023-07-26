@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import Nav from './Nav';
-import TechnicianList from './TechnicianList'
-import TechnicianForm from './TechnicianForm'
-import AppointmentList from './AppointmentList'
-import AppointmentForm from './AppointmentForm'
+import TechnicianList from './TechnicianList';
+import TechnicianForm from './TechnicianForm';
+import AppointmentList from './AppointmentList';
+import AppointmentForm from './AppointmentForm';
+import ServiceHistory from './ServiceHistory';
 import SalesPersonForm from './SalesPersonForm';
 import SalesPersonList from './SalesPersonsList';
 import CustomerForm from './CustomerForm';
@@ -60,6 +61,7 @@ function App() {
           <Route path="/appointments/">
             <Route index element={<AppointmentList appts={appts} getAppts={getAppts} />} />
             <Route path="create/" element={<AppointmentForm techs={techs} getAppts={getAppts} />} />
+            <Route path="history/" element={<ServiceHistory appts={appts} getAppts={getAppts} />} />
           </Route>
           <Route path="/salespeople-create" element={<SalesPersonForm />} />
           <Route path="/salespeople-list" element={<SalesPersonList />} />
