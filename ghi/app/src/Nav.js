@@ -52,6 +52,7 @@ function Nav() {
             <li className="navbar-nav me-auto mb-2 mb-lg-0">
                 <NavLink className="nav-link" to="/salesperson-history">Salesperson History</NavLink>
             </li>
+<<<<<<< HEAD
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown-models" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Models
@@ -61,6 +62,20 @@ function Nav() {
               <li><NavLink className="dropdown-item" to="/models/create/">Create</NavLink></li>
           </ul>
         </li>
+=======
+            <li className="navbar-nav me-auto mb-2 mb-lg-0">
+                <NavLink className="nav-link" to="/automobile-form">Automobile Form</NavLink>
+            </li>
+            <li className="navbar-nav me-auto mb-2 mb-lg-0">
+                <NavLink className="nav-link" to="/automobile-list">Automobiles</NavLink>
+            </li>
+            <li className="navbar-nav me-auto mb-2 mb-lg-0">
+                <NavLink className="nav-link" to="/manufacturer-form">Manufacturer form</NavLink>
+            </li>
+            <li className="navbar-nav me-auto mb-2 mb-lg-0">
+                <NavLink className="nav-link" to="/manufacturer-list">Manufacturers</NavLink>
+            </li>
+>>>>>>> josh3
           </ul>
         </div>
       </div>

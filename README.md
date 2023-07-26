@@ -33,4 +33,4 @@ This microservice now consists of 6 React components on the frond end:
 - SalesPersonList (allows the user to view a list of all salespersons)
 - SalesPersonSalesHistory (allows the user to view a list of all sales made by specific salespersons, a useful TPI/performance tracking metric)
 
-UI/Design is basic with some minor bootstrap additions. Will improve tomorrow.
+UI/Design is basic with some bootstrap mix-ins. Will improve tomorrow.
