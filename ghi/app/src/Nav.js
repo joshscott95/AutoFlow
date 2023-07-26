@@ -10,7 +10,7 @@ function Nav() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-          <li className="nav-item dropdown">
+        <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown-techs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Technicians
           </a>
@@ -52,6 +52,15 @@ function Nav() {
             <li className="navbar-nav me-auto mb-2 mb-lg-0">
                 <NavLink className="nav-link" to="/salesperson-history">Salesperson History</NavLink>
             </li>
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown-models" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Models
+            </a>
+            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><NavLink className="dropdown-item" to="/models/">List All</NavLink></li>
+              <li><NavLink className="dropdown-item" to="/models/create/">Create</NavLink></li>
+          </ul>
+        </li>
           </ul>
         </div>
       </div>
