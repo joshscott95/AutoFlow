@@ -34,3 +34,7 @@ class Appointment(models.Model):
         related_name="appointments",
         on_delete=models.PROTECT,
     )
+    vip = models.CharField(max_length=10, default="No")
+
+    def __str__(self):
+        return f'Customer: {self.customer} // Reason: {self.reason}'
