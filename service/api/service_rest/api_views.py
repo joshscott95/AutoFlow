@@ -3,7 +3,7 @@ from django.views.decorators.http import require_http_methods
 import json
 
 from common.json import ModelEncoder
-from .models import Technician, Appointment
+from .models import Technician, Appointment, AutomobileVO
 
 class TechnicianListEncoder(ModelEncoder):
     model = Technician
@@ -24,9 +24,10 @@ class AppointmentListEncoder(ModelEncoder):
         "vin",
         "customer",
         "technician",
+        "vip"
      ]
-     encoders = {"technician": TechnicianListEncoder(),
-                 }
+
+     encoders = {"technician": TechnicianListEncoder(),}
 
 @require_http_methods(["GET", "POST"])
 def api_list_technicians(request):
@@ -78,6 +79,10 @@ def api_list_appointments(request):
                 {"message": "Invalid technician id"},
                 status=400,
             )
+        if AutomobileVO.objects.filter(vin=content["vin"]).count() > 0:
+            content["vip"] = "Yes"
+        else:
+            content["vip"] = "No"
         appointment = Appointment.objects.create(**content)
         return JsonResponse(
             appointment,
