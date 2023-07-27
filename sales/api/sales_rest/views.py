@@ -1,7 +1,6 @@
-from django.shortcuts import render
 from django.db import transaction
 from common.json import ModelEncoder
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.core.exceptions import ObjectDoesNotExist
 import requests
