@@ -9,9 +9,9 @@
     \|_______| \|__|\|__| \|__|\|__| \|_______| \|__|\|__| \|__|\|__|
 
 ```
-Team:
-**Adam K** - Service
-**Joshua S** - Sales
+Project Team:
+    - **Adam K** - Service
+    - **Joshua S** - Sales
 
 ## How to Run this App
 
