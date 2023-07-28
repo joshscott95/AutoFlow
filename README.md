@@ -105,14 +105,14 @@ The Inventory microservice is integrated to both the Service and Sales microserv
 | Update a Specific Vehicle Model | PUT    | http://localhost:8100/api/models/:id/ |
 | Delete a Specific Vehicle Model | DELETE | http://localhost:8100/api/models/:id/ |
 +---------------------------------+--------+---------------------------------------+
-+----------------------------------+----------+---------------------------------------------------------+
-|             Action               |  Method  |                   JSON Body - Example                   |
-+----------------------------------+----------+---------------------------------------------------------+
-| Create a Vehicle Model           | POST     |  { "name": "Sebring",                                   |
-|                                  |          |    "picture_url": "<Insert URL>", "manufacturer_id": 1} |
-| Update a Specific Vehicle Model  | PUT      |  { "name": "Civic",                                     |
-|                                  |          |    "picture_url": "<Insert URL>", "manufacturer_id": 2} |
-+----------------------------------+----------+---------------------------------------------------------+
++----------------------------------+----------+-----------------------------------------------------------+
+|             Action               |  Method  |                   JSON Body - Example                     |
++----------------------------------+----------+-----------------------------------------------------------+
+| Create a Vehicle Model           | POST     |  { "name": "Sebring",                                     |
+|                                  |          |    "picture_url": "<<Insert URL>>", "manufacturer_id": 1} |
+| Update a Specific Vehicle Model  | PUT      |  { "name": "Civic",                                       |
+|                                  |          |    "picture_url": "<<Insert URL>>", "manufacturer_id": 2} |
++----------------------------------+----------+-----------------------------------------------------------+
 ```
 **Automobiles**
 ```
