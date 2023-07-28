@@ -108,7 +108,7 @@ function App() {
           <Route path="/salesperson-history" element={<SalesPersonHistory />} />
           <Route path="/automobile-form" element={<AutomobileForm />} />
           <Route path="/automobile-list" element={<AutomobileList />} />
-          <Route path="/manufacturer-form" element={<ManufacturerForm />} />
+          <Route path="/manufacturer-form" element={<ManufacturerForm getManufacturers = {getManufacturers}/> } />
           <Route path="/manufacturer-list" element={<ManufacturerList />} />
         </Routes>
       </div>

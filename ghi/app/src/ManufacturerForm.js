@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ManufacturerForm = () => {
+const ManufacturerForm = (props) => {
     const [name, setName] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
@@ -18,6 +18,7 @@ const ManufacturerForm = () => {
         if (response.ok) {
             setName('');
             setErrorMessage('');
+            props.getManufacturers()
         } else {
             setErrorMessage('Could not create the manufacturer');
         }
