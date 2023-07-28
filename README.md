@@ -59,18 +59,18 @@ Team:
 ## Inventory Microservice
 
 For this microservice, we utilized the following models (and properties) listed below:
-    - Model: 'Manufacturer'
-        -- name
-    - Model: 'VehicleModel'
-        -- name
-        -- picture_url
-        -- manufacturer (foreign-key)
-    - Model: 'Automobile'
-        -- color
-        -- year
-        -- vin
-        -- sold
-        -- model (foreign-key)
+1. Model: 'Manufacturer'
+    - name
+2. Model: 'VehicleModel'
+    - name
+    - picture_url
+    - manufacturer (foreign-key)
+3. Model: 'Automobile'
+    - color
+    - year
+    - vin
+    - sold
+    - model (foreign-key)
 
 The Inventory microservice is integrated to both the Service and Sales microservices through their respective pollers (service-poller-1, sales-poller-1). This helps with the scalability of each microservice and simplifies the management of each database. Overall, this microservice is designed to help dealerships manage a varied and dynamic inventory while communicating changes to both its Service and Sales branches.
 
@@ -137,21 +137,21 @@ The Inventory microservice is integrated to both the Service and Sales microserv
 ## Service microservice
 
 For this microservice, we utilized the following models (and properties) listed below:
-    - Model: 'Technician'
-        -- first_name
-        -- last_name
-        -- employee_id
-    - Model: 'Appointment'
-        -- date_time
-        -- reason
-        -- status
-        -- vin
-        -- customer
-        -- technician (foreign-key)
-        -- vip
-    - Model: 'Automobile VO'
-        -- vin
-        -- sold
+1. Model: 'Technician'
+    - first_name
+    - last_name
+    - employee_id
+2. Model: 'Appointment'
+    - date_time
+    - reason
+    - status
+    - vin
+    - customer
+    - technician (foreign-key)
+    - vip
+3. Model: 'Automobile VO'
+    - vin
+    - sold
 
 We were able to integrate with the Inventory microservice through the ‘AutomobileVO’ model (value object) containing both vin and sold properties. Our microservice's poller (service-poller-1) pings the Inventory's Automobile API @ "http://project-beta-inventory-api-1:8000/api/automobiles/" every 60 seconds to look for any new (or updated) data.
 
