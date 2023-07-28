@@ -93,6 +93,7 @@ This microservice now consists of 6 React components on the frond end:
 UI/Design is basic with some bootstrap mix-ins. Will improve tomorrow.
 
 ### Sales API
+--
 +--------------------------------------+--------+----------------------------------------------------+
 |                Action                | Method |                        URL                         |
 +--------------------------------------+--------+----------------------------------------------------+
@@ -117,6 +118,7 @@ UI/Design is basic with some bootstrap mix-ins. Will improve tomorrow.
 | Create a Sale                         | POST     |  {"automobile": 1, "salesperson": 1,              |
 |                                       |          |   "customer": 1, "price": 20000}                  |
 +---------------------------------------+----------+---------------------------------------------------+
+--
 
 
 
