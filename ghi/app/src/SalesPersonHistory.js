@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 const SalesPersonHistory = () => {
     const [salespersons, setSalespersons] = useState([]);
     const [sales, setSales] = useState([]);
+    const [selectedSalesperson, setSelectedSalesperson] = useState(null);
 
     useEffect(() => {
         fetch('http://localhost:8090/api/salespeople/')
@@ -16,10 +17,23 @@ const SalesPersonHistory = () => {
             .catch(err => console.log(err));
     }, []);
 
+    const handleSalespersonChange = (event) => {
+        setSelectedSalesperson(salespersons.find(s => s.id === Number(event.target.value)));
+    }
+    
+
     return (
         <div>
-            <h1>Salespeople History</h1>
-            {salespersons && salespersons.length > 0 ? (
+            <h1>Salesperson History</h1>
+            <select onChange={handleSalespersonChange}>
+                <option>Select a salesperson...</option>
+                {salespersons.map((salesperson) => (
+                    <option key={salesperson.id} value={salesperson.id}>
+                        {salesperson.first_name} {salesperson.last_name}
+                    </option>
+                ))}
+            </select>
+            {selectedSalesperson && (
                 <table className="table">
                     <thead>
                         <tr>
@@ -31,38 +45,34 @@ const SalesPersonHistory = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {salespersons.map((salesperson, index) => (
-                            <tr key={salesperson.id}>
-                                <th scope="row">{index + 1}</th>
-                                <td>{salesperson.first_name}</td>
-                                <td>{salesperson.last_name}</td>
-                                <td>{salesperson.employee_id}</td>
-                                <td>
-                                    <table className="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Customer</th>
-                                                <th scope="col">Automobile VIN</th>
-                                                <th scope="col">Price</th>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>{selectedSalesperson.first_name}</td>
+                            <td>{selectedSalesperson.last_name}</td>
+                            <td>{selectedSalesperson.employee_id}</td>
+                            <td>
+                                <table className="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Customer</th>
+                                            <th scope="col">Automobile VIN</th>
+                                            <th scope="col">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {sales.filter(sale => sale.salesperson.id === selectedSalesperson.id).map((sale, index) => (
+                                            <tr key={sale.id}>
+                                                <td>{sale.customer.first_name} {sale.customer.last_name}</td>
+                                                <td>{sale.automobile.vin}</td>
+                                                <td>{sale.price}</td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            {sales.filter(sale => sale.salesperson.id === salesperson.id).map(sale => (
-                                                <tr key={sale.id}>
-                                                    <td>{sale.customer.first_name} {sale.customer.last_name}</td>
-                                                    <td>{sale.automobile.vin}</td>
-                                                    <td>{sale.price}</td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        ))}
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
-            ) : (
-                <p>No salespersons found</p>
             )}
         </div>
     );
