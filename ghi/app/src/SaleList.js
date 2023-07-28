@@ -20,6 +20,7 @@ const SaleList = () => {
                             <th scope="col">#</th>
                             <th scope="col">Automobile VIN</th>
                             <th scope="col">Salesperson Name</th>
+                            <th scope="col">Employee Number</th>
                             <th scope="col">Customer Name</th>
                             <th scope="col">Price</th>
                         </tr>
@@ -30,6 +31,7 @@ const SaleList = () => {
                                 <th scope="row">{index + 1}</th>
                                 <td>{sale.automobile.vin}</td>
                                 <td>{sale.salesperson.first_name} {sale.salesperson.last_name}</td>
+                                <td>{sale.salesperson.employee_id}</td>
                                 <td>{sale.customer.first_name} {sale.customer.last_name}</td>
                                 <td>{sale.price}</td>
                             </tr>
