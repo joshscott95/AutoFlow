@@ -134,6 +134,21 @@ The Inventory microservice is integrated to both the Service and Sales microserv
 |                               |          |   "vin": "1C3CC5FB2AN120174", "model_id": 2} |
 +-------------------------------+----------+----------------------------------------------+
 ```
+
+### Inventory Front-End
+```
++------------------------------------------+------------------------+---------------------------------------------------------------------+
+|             Web App Address              |    React Component     |                             Description                             |
++------------------------------------------+------------------------+---------------------------------------------------------------------+
+| http://localhost:3000/automobile-list/   |  AutomobileList.js     |  Allows users to view all automobiles in inventory (sold & unsold). |
+| http://localhost:3000/automobile-form/   |  AutomobileForm.js     |  Allows users to create a new automobile for inventory VIA a form.  |
+| http://localhost:3000/models/            |  ModelList.js          |  Allows users to view all vehicle models.                           |
+| http://localhost:3000/models/create/     |  ModelForm.js          |  Allows users to create a new vehicle model VIA a form.             |
+| http://localhost:3000/manufacturer-list/ |  ManufacturerList.js   |  Allows users to view all manufacturers.                            |
+| http://localhost:3000/manufacturer-form/ |  ManufacturerForm.js   |  Allows users to create a new manufacturer VIA a form.              |
++------------------------------------------+------------------------+---------------------------------------------------------------------+
+```
+
 ## Service microservice
 
 For this microservice, we utilized the following models (and properties) listed below:
@@ -194,7 +209,7 @@ Ultimately, this setup (along with the 'vip' property on the 'Appointment' model
 +----------------------------------------------+----------------------+----------------------------------------------------------------------------------+
 | http://localhost:3000/technicians/           |  TechnicianList.js   |  Allows users to view all technicians.                                           |
 | http://localhost:3000/technicians/create/    |  TechnicianForm.js   |  Allows users to create a new technician VIA a form.                             |
-| http://localhost:3000/appointments/          |  AppointmentList.js  |  Allows users to view active appointments and alter appointment statuses.        |
+| http://localhost:3000/appointments/          |  AppointmentList.js  |  Allows users to view active appointments and alter an appointment's status.     |
 | http://localhost:3000/appointments/create/   |  AppointmentForm.js  |  Allows users to create a new appointment VIA a form.                            |
 | http://localhost:3000/appointments/history/  |  ServiceHistory.js   |  Allows users to view all appointments (regardless of status) and search by VIN. |
 +----------------------------------------------+----------------------+----------------------------------------------------------------------------------+
