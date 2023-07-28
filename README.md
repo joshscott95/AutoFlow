@@ -36,18 +36,26 @@ graph TD;
     subgraph React App
         A(React App: ghi)
         A1(Model Component) -->|GET /api/models| B(Inventory API)
+        A1 -->|POST /api/models| B
         A2(Manufacturer Component) -->|GET /api/manufacturers| B
+        A2 -->|POST /api/manufacturers| B
         A3(Automobiles Component) -->|GET /api/automobiles| B
+        A3 -->|POST /api/automobiles| B
         A4(Appointments Component) -->|GET /api/appointments| C(Service API)
+        A4 -->|POST /api/appointments| C
         A5(Customers Component) -->|GET /api/customers| D(Sales API)
+        A5 -->|POST /api/customers| D
         A6(Sales Component) -->|GET /api/sales| D
+        A6 -->|POST /api/sales| D
         A7(Salespeople Component) -->|GET /api/salespeople| D
+        A7 -->|POST /api/salespeople| D
         A8(Technician Component) -->|GET /api/technicians| C
+        A8 -->|POST /api/technicians| C
     end
     
     subgraph Docker
-        B -.-> E1[Inventory Poller]
-        C -.-> E2[Service Poller]
+        B -.-> E1[Service Poller]
+        C -.-> E2[Service API]
         D -.-> E3[Sales Poller]
         F{Database}
         E1 -.->|CRUD Operations| F
@@ -56,11 +64,8 @@ graph TD;
     end
 
     B -->|GET /api/automobiles| E1
-    B -->|GET /api/automobiles| E2
-    B -->|GET /api/automobiles| E3
     C -->|GET /api/appointments| E2
     D -->|GET /api/customers, /api/sales, /api/salespeople| E3
-
 ```
 
 ​
