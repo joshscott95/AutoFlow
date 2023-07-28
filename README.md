@@ -77,6 +77,7 @@ The Inventory microservice is integrated to both the Service and Sales microserv
 ### Inventory API
 
 **Manufacturers**
+```
 +--------------------------------+--------+----------------------------------------------+
 |             Action             | Method |                     URL                      |
 +--------------------------------+--------+----------------------------------------------+
@@ -92,8 +93,9 @@ The Inventory microservice is integrated to both the Service and Sales microserv
 | Create a Manufacturer          | POST   | {"name": "Chrysler"} |
 | Update a Specific Manufacturer | PUT    | {"name": "Honda"}    |
 +--------------------------------+--------+----------------------+
-
+```
 **Models**
+```
 +---------------------------------+--------+---------------------------------------+
 |             Action              | Method |                  URL                  |
 +---------------------------------+--------+---------------------------------------+
@@ -111,8 +113,9 @@ The Inventory microservice is integrated to both the Service and Sales microserv
 | Update a Specific Vehicle Model  | PUT      |  { "name": "Civic",                                     |
 |                                  |          |    "picture_url": "<Insert URL>", "manufacturer_id": 2} |
 +----------------------------------+----------+---------------------------------------------------------+
-
+```
 **Automobiles**
+```
 +------------------------------+--------+---------------------------------------------+
 |            Action            | Method |                     URL                     |
 +------------------------------+--------+---------------------------------------------+
@@ -130,7 +133,7 @@ The Inventory microservice is integrated to both the Service and Sales microserv
 | Update a Specific Automobile  | PUT      |  {"color": "blue", "year": 2014,             |
 |                               |          |   "vin": "1C3CC5FB2AN120174", "model_id": 2} |
 +-------------------------------+----------+----------------------------------------------+
-
+```
 ## Service microservice
 
 For this microservice, we utilized the following models (and properties) listed below:
@@ -155,6 +158,7 @@ We were able to integrate with the Inventory microservice through the ‘Automob
 Ultimately, this setup (along with the 'vip' property on the 'Appointment' model) allows us to determine if a customer's vehicle was in our inventory (meaning it has been sold). It also allows us to avoid any synchronization issues that may occur from attempting to maintain 'Automobile' entities over multiple databases.
 
 ### Service API
+```
 +--------------------------------------+--------+----------------------------------------------------+
 |                Action                | Method |                        URL                         |
 +--------------------------------------+--------+----------------------------------------------------+
@@ -182,7 +186,7 @@ Ultimately, this setup (along with the 'vip' property on the 'Appointment' model
 | Set Appointment Status to 'canceled'  | PUT      |  N/A - body should be empty.                      |
 | Set Appointment Status to 'finished'  | PUT      |  N/A - body should be empty.                      |
 +---------------------------------------+----------+---------------------------------------------------+
-
+```
 ## Sales microservice
 
 This microservice consists of 4 models:
