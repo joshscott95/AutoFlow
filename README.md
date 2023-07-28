@@ -34,38 +34,38 @@ docker-compose up
 graph TD;
 
     subgraph React App
-        A(React App: ghi)
-        A1(Model Component) -->|GET /api/models| B(Inventory API)
+        A(Project Beta: CarCar)
+        A1(Model Components) -->|GET /api/models| B(Inventory API)
         A1 -->|POST /api/models| B
-        A2(Manufacturer Component) -->|GET /api/manufacturers| B
+        A2(Manufacturer Components) -->|GET /api/manufacturers| B
         A2 -->|POST /api/manufacturers| B
-        A3(Automobiles Component) -->|GET /api/automobiles| B
+        A3(Automobiles Components) -->|GET /api/automobiles| B
         A3 -->|POST /api/automobiles| B
-        A4(Appointments Component) -->|GET /api/appointments| C(Service API)
+        A4(Appointments Components) -->|GET /api/appointments| C(Service API)
         A4 -->|POST /api/appointments| C
-        A5(Customers Component) -->|GET /api/customers| D(Sales API)
+        A5(Customers Components) -->|GET /api/customers| D(Sales API)
         A5 -->|POST /api/customers| D
-        A6(Sales Component) -->|GET /api/sales| D
+        A6(Sales Components) -->|GET /api/sales| D
         A6 -->|POST /api/sales| D
-        A7(Salespeople Component) -->|GET /api/salespeople| D
+        A6 -->|PUT /api/automobiles| D
+        A7(Salespeople Components) -->|GET /api/salespeople| D
         A7 -->|POST /api/salespeople| D
-        A8(Technician Component) -->|GET /api/technicians| C
+        A8(Technician Components) -->|GET /api/technicians| C
         A8 -->|POST /api/technicians| C
     end
-    
-    subgraph Docker
-        B -.-> E1[Service Poller]
-        C -.-> E2[Service API]
+    subgraph Backend
+        B -.-> |CRUD Operations| F
+        C -.-> E2[Service Poller]
         D -.-> E3[Sales Poller]
         F{Database}
-        E1 -.->|CRUD Operations| F
         E2 -.->|CRUD Operations| F
         E3 -.->|CRUD Operations| F
+        %% C -->|GET /api/appointments| E2
+        %% D -->|GET /api/customers, /api/sales, /api/salespeople| E3
     end
 
-    B -->|GET /api/automobiles| E1
-    C -->|GET /api/appointments| E2
-    D -->|GET /api/customers, /api/sales, /api/salespeople| E3
+    
+
 ```
 
 ​
