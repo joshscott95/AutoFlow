@@ -93,31 +93,23 @@ This microservice now consists of 6 React components on the frond end:
 UI/Design is basic with some bootstrap mix-ins. Will improve tomorrow.
 
 ### Sales API
-.List of Endpoints
-[cols=>1h;2d,width=100%,frame=topbot]
-|===
-| Action | Method | URL
+| Action                               | Method | URL                                                  |
+| ------------------------------------ | ------ | ---------------------------------------------------- |
+| List Technicians                     | GET    | http://localhost:8080/api/technicians/               |
+| Create a Technician                  | POST   | http://localhost:8080/api/technicians/               |
+| Delete a Specific Technician         | DELETE | http://localhost:8080/api/technicians/:id/           |
+| List Appointments                    | GET    | http://localhost:8080/api/appointments/              |
+| Create an Appointment                | POST   | http://localhost:8080/api/appointments/              |
+| Delete an Appointment                | DELETE | http://localhost:8080/api/appointments/:id/          |
+| Set Appointment Status to 'canceled' | PUT    | http://localhost:8080/api/appointments/:id/cancel/   |
+| Set Appointment Status to 'finished' | PUT    | http://localhost:8080/api/appointments/:id/finish/   |
 
-| List Salespeople | GET | http://localhost:8090/api/salespeople/
-| Create a Salesperson | POST | http://localhost:8090/api/salespeople/
-| Delete a Specific Salesperson | DELETE | http://localhost:8090/api/salespeople/:id/
-| List Customers | GET | http://localhost:8090/api/customers/
-| Create a Customer | POST | http://localhost:8090/api/customers/
-| Delete a Specific Customer | DELETE | http://localhost:8090/api/customers/:id/
-| List Sales | GET | http://localhost:8090/api/sales/
-| Create a Sale | POST | http://localhost:8090/api/sales/
-| Delete a Specific Sale | DELETE | http://localhost:8090/api/sales/:id/
-|===
-
-.JSON Body Examples
-[cols=>1h;2d,width=100%,frame=topbot]
-|===
-| Action | JSON Body - Example
-
-| Create a Salesperson | {"first_name": "John", "last_name": "Doe", "employee_id": "jdoe"}
-| Create a Customer | {"first_name": "Jane", "last_name": "Doe", "address": "123 Main St", "phone_number": "123-456-7890"}
-| Create a Sale | {"automobile": 1, "salesperson": 1, "customer": 1, "price": 20000}
-|===
+| Action                               | Method | JSON Body - Example                                  |
+| ------------------------------------ | ------ | ---------------------------------------------------- |
+| Create a Technician                  | POST   | {"first_name": "John", "last_name": "Appleseed", "employee_id": "jappleseed"} |
+| Create an Appointment                | POST   | {"date_time": "2011-11-04T00:10:00", "reason": "Brake Replacement", "vin": "1C3CC5FB2AN120174", "customer": "Jane Appleseed", "technician": 1} |
+| Set Appointment Status to 'canceled' | PUT    | N/A - body should be empty.                          |
+| Set Appointment Status to 'finished' | PUT    | N/A - body should be empty.                          |
 
 
 
