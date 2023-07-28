@@ -105,14 +105,12 @@ The Inventory microservice is integrated to both the Service and Sales microserv
 | Update a Specific Vehicle Model | PUT    | http://localhost:8100/api/models/:id/ |
 | Delete a Specific Vehicle Model | DELETE | http://localhost:8100/api/models/:id/ |
 +---------------------------------+--------+---------------------------------------+
-+----------------------------------+----------+-----------------------------------------------------------+
-|             Action               |  Method  |                   JSON Body - Example                     |
-+----------------------------------+----------+-----------------------------------------------------------+
-| Create a Vehicle Model           | POST     |  { "name": "Sebring",                                     |
-|                                  |          |    "picture_url": "<<Insert URL>>", "manufacturer_id": 1} |
-| Update a Specific Vehicle Model  | PUT      |  { "name": "Civic",                                       |
-|                                  |          |    "picture_url": "<<Insert URL>>", "manufacturer_id": 2} |
-+----------------------------------+----------+-----------------------------------------------------------+
++----------------------------------+----------+-----------------------------------------------------------------------------+
+|             Action               |  Method  |                             JSON Body - Example                             |
++----------------------------------+----------+-----------------------------------------------------------------------------+
+| Create a Vehicle Model           |  POST    |  {"name": "Sebring", "picture_url": "<<Insert URL>>", "manufacturer_id": 1} |
+| Update a Specific Vehicle Model  |  PUT     |  {"name": "Civic", "picture_url": "<<Insert URL>>", "manufacturer_id": 2}   |
++----------------------------------+----------+-----------------------------------------------------------------------------+
 ```
 **Automobiles**
 ```
@@ -125,14 +123,12 @@ The Inventory microservice is integrated to both the Service and Sales microserv
 | Update a Specific Automobile | PUT    | http://localhost:8100/api/automobiles/:vin/ |
 | Delete a Specific Automobile | DELETE | http://localhost:8100/api/automobiles/:vin/ |
 +------------------------------+--------+---------------------------------------------+
-+-------------------------------+----------+----------------------------------------------+
-|            Action             |  Method  |              JSON Body - Example             |
-+-------------------------------+----------+----------------------------------------------+
-| Create an Automobile          | POST     |  {"color": "red", "year": 2012,              |
-|                               |          |   "vin": "1C3CC5FB2AN120174", "model_id": 1} |
-| Update a Specific Automobile  | PUT      |  {"color": "blue", "year": 2014,             |
-|                               |          |   "vin": "1C3CC5FB2AN120174", "model_id": 2} |
-+-------------------------------+----------+----------------------------------------------+
++-------------------------------+----------+-----------------------------------------------------------------------------+
+|            Action             |  Method  |                             JSON Body - Example                             |
++-------------------------------+----------+-----------------------------------------------------------------------------+
+| Create an Automobile          |  POST    |  {"color": "red", "year": 2012, "vin": "1C3CC5FB2AN120174", "model_id": 2}  |
+| Update a Specific Automobile  |  PUT     |  {"color": "blue", "year": 2014, "vin": "1C4CC6FB3AN231285", "model_id": 2} |
++-------------------------------+----------+-----------------------------------------------------------------------------+
 ```
 
 ### Inventory Front-End
@@ -186,21 +182,14 @@ Ultimately, this setup (along with the 'vip' property on the 'Appointment' model
 | Set Appointment Status to 'canceled' | PUT    | http://localhost:8080/api/appointments/:id/cancel/ |
 | Set Appointment Status to 'finished' | PUT    | http://localhost:8080/api/appointments/:id/finish/ |
 +--------------------------------------+--------+----------------------------------------------------+
-+---------------------------------------+----------+---------------------------------------------------+
-|                Action                 |  Method  |                JSON Body - Example                |
-+---------------------------------------+----------+---------------------------------------------------+
-| Create a Technician                   | POST     |  {"first_name": "John", "last_name": "Appleseed", |
-|                                       |          |   "employee_id": "jappleseed"}                    |
-|                                       |          |                                                   |
-| Create an Appointment                 | POST     |  {"date_time": "2011-11-04T00:10:00",             |
-|                                       |          |   "reason": "Brake Replacement",                  |
-|                                       |          |   "vin": "1C3CC5FB2AN120174",                     |
-|                                       |          |   "customer": "Jane Appleseed",                   |
-|                                       |          |   "technician": 1}                                |
-|                                       |          |                                                   |
-| Set Appointment Status to 'canceled'  | PUT      |  N/A - body should be empty.                      |
-| Set Appointment Status to 'finished'  | PUT      |  N/A - body should be empty.                      |
-+---------------------------------------+----------+---------------------------------------------------+
++-------------------------------------------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+|                  Action                   |  Method  |                                                               JSON Body - Example                                                               |
++-------------------------------------------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+| Create a Technician                       |  POST    |  {"first_name": "John", "last_name": "Appleseed", "employee_id": "jappleseed"}                                                                  |
+| Create an Appointment                     |  POST    |  {"date_time": "2011-11-04T00:10:00", "reason": "Brake Replacement", "vin": "1C3CC5FB2AN120174", "customer": "Jane Appleseed", "technician": 1} |
+| Set an Appointment Status to 'canceled'   |  PUT     |  N/A - JSON Body should be empty.                                                                                                               |
+| Set an Appointment Status to 'finished'   |  PUT     |  N/A - JSON Body should be empty.                                                                                                               |
++-------------------------------------------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
 ```
 ### Service Front-End
 ```
@@ -226,19 +215,46 @@ My AutomobileVO model relies on data from an existing Automobile model in anothe
 in order to retrieve this data I use a poller script which successfully querys data using an API endpoint "...inventory-api:8000/api/automobiles"
 This poller will only function if ALLOWED_HOSTS in both projects has each respective services name listed. These names can be found in docker-compose.yaml files
 
-This microservice now consists of 6 React components on the frond end:
-- CustomerForm (allows the user to create a new customer)
-- CustomerList (allows the user to view a list of all customers)
-- SalesForm    (allows the user to create a new Sale by selecting only unsold automobiles and corresponding customer, salesperson, and price)
-- SalesList    (allows the user to view a list of all sales made by automobile vin and price)
-- SalesPersonForm (allows the user to create a new Salesperson)
-- SalesPersonList (allows the user to view a list of all salespersons)
-- SalesPersonSalesHistory (allows the user to view a list of all sales made by specific salespersons, a useful TPI/performance tracking metric)
-
 UI/Design is basic with some bootstrap mix-ins. Will improve tomorrow.
 
 ### Sales API
-    - Put Sales API documentation here
+```
++--------------------------------+----------+---------------------------------------------+
+|            Action              |  Method  |                     URL                     |
++--------------------------------+----------+---------------------------------------------+
+| List Salespeople               |  GET     |  http://localhost:8090/api/salespeople/     |
+| Create a Salesperson           |  POST    |  http://localhost:8090/api/salespeople/     |
+| Delete a Specific Salesperson  |  DELETE  |  http://localhost:8090/api/salespeople/:id/ |
+| List Customers                 |  GET     |  http://localhost:8090/api/customers/       |
+| Create a Customer              |  POST    |  http://localhost:8090/api/customers/       |
+| Delete a Specific Customer     |  DELETE  |  http://localhost:8090/api/customers/:id/   |
+| List Sales                     |  GET     |  http://localhost:8090/api/sales/           |
+| Create a Sale                  |  POST    |  http://localhost:8090/api/sales/           |
+| Delete a Specific Sale         |  DELETE  |  http://localhost:8090/api/sales/:id/       |
++--------------------------------+----------+---------------------------------------------+
++-----------------------+----------+-------------------------------------------------------------------------------------------------------+
+|        Action         |  Method  |                                          JSON Body - Example                                          |
++-----------------------+----------+-------------------------------------------------------------------------------------------------------+
+| Create a Salesperson  |  POST    |  {"first_name": "John", "last_name": "Doe", "employee_id": "jdoe"}                                    |
+| Create a Customer     |  POST    |  {"first_name": "Jane", "last_name": "Doe", "address": "123 Main St", "phone_number": "123-456-7890"} |
+| Create a Sale         |  POST    |  {"automobile": 1, "salesperson": 1, "customer": 1, "price": 20000}                                   |
++-----------------------+----------+-------------------------------------------------------------------------------------------------------+
+```
+
+### Sales Front-End
+```
++--------------------------------------------+-------------------------+-------------------------------------------------------------------------------------------+
+|              Web App Address               |     React Component     |                                        Description                                        |
++--------------------------------------------+-------------------------+-------------------------------------------------------------------------------------------+
+| http://localhost:3000/salespeople-create/  |  SalesPersonForm.js     |  Allows users to create a salesperson VIA a form.                                         |
+| http://localhost:3000/salespeople-list/    |  SalesPersonsList.js    |  Allows users to view all salespersons.                                                   |
+| http://localhost:3000/customer-form/       |  CustomerForm.js        |  Allows users to create a customer VIA a form.                                            |
+| http://localhost:3000/customer-list/       |  CustomerList.js        |  Allows users to view all customers.                                                      |
+| http://localhost:3000/sale-form/           |  SaleForm.js            |  Allows users to create a sale for a specific automobile/salesperson/customer VIA a form. |
+| http://localhost:3000/sale-list/           |  SaleList.js            |  Allows users to view all sales.                                                          |
+| http://localhost:3000/salesperson-history/ |  SalesPersonHistory.js  |  Allows users to view sales for a specific salesperson.                                   |
++--------------------------------------------+-------------------------+-------------------------------------------------------------------------------------------+
+```
 
 ## Value Objects
     - Inventory Microservice
@@ -246,4 +262,8 @@ UI/Design is basic with some bootstrap mix-ins. Will improve tomorrow.
     - Service Microservice
         -- Model: 'AutomobileVO'
             --- Properties: 'vin', 'sold'
-            --- This VO allows us to determine if a customer's appointment is eligible for VIP discounts, etc.
+            --- This VO allows us to determine if a customer's appointment is eligible for VIP discounts i.e. they purchased their car from inventory.
+    - Sales Microservice
+        -- Model: 'AutomobileVO'
+            --- Properties: 'vin', 'sold'
+            --- This VO allows us to relay sales information to the Inventory microservice by updating the 'sold' property on an Automobile entity.
