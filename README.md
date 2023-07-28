@@ -31,13 +31,36 @@ docker-compose up
 ​
 ## Diagram
 ```mermaid
- graph TD;
-  React_Frontend-->Django_Backend_Inventory;
-  React_Frontend-->Django_Backend_Sales;
-  React_Frontend-->Django_Backend_Service;
-  Django_Backend_Inventory-->PostgreSQL_Database;
-  Django_Backend_Sales-->PostgreSQL_Database;
-  Django_Backend_Service-->PostgreSQL_Database;
+graph TD;
+
+    subgraph React App
+        A(React App: ghi)
+        A1(Model Component) -->|GET /api/models| B(Inventory API)
+        A2(Manufacturer Component) -->|GET /api/manufacturers| B
+        A3(Automobiles Component) -->|GET /api/automobiles| B
+        A4(Appointments Component) -->|GET /api/appointments| C(Service API)
+        A5(Customers Component) -->|GET /api/customers| D(Sales API)
+        A6(Sales Component) -->|GET /api/sales| D
+        A7(Salespeople Component) -->|GET /api/salespeople| D
+        A8(Technician Component) -->|GET /api/technicians| C
+    end
+    
+    subgraph Docker
+        B -.-> E1[Inventory Poller]
+        C -.-> E2[Service Poller]
+        D -.-> E3[Sales Poller]
+        F{Database}
+        E1 -.->|CRUD Operations| F
+        E2 -.->|CRUD Operations| F
+        E3 -.->|CRUD Operations| F
+    end
+
+    B -->|GET /api/automobiles| E1
+    B -->|GET /api/automobiles| E2
+    B -->|GET /api/automobiles| E3
+    C -->|GET /api/appointments| E2
+    D -->|GET /api/customers, /api/sales, /api/salespeople| E3
+
 ```
 
 ​
