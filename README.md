@@ -205,17 +205,28 @@ Ultimately, this setup (along with the 'vip' property on the 'Appointment' model
 ```
 ## Sales Microservice
 
-This microservice consists of 4 models:
-- customers
-- salespersons
-- sales
-- AutomobileVOs
-These models are integrated into 3 REST API methods GET, POST, DELETE
-My AutomobileVO model relies on data from an existing Automobile model in another Django project.
-in order to retrieve this data I use a poller script which successfully querys data using an API endpoint "...inventory-api:8000/api/automobiles"
-This poller will only function if ALLOWED_HOSTS in both projects has each respective services name listed. These names can be found in docker-compose.yaml files
+For this microservice, we utilized the following models (and properties) listed below:
+1. Model: 'Salesperson'
+    - first_name
+    - last_name
+    - employee_id
+2. Model: 'Customer'
+    - first_name
+    - last_name
+    - address
+    - phone_number
+3. Model: 'AutomobileVO'
+    - vin
+    - sold
+4. Model: 'Sale'
+    - automobile (foreign-key)
+    - salesperson (foreign-key)
+    - customer (foreign-key)
+    - price
 
-UI/Design is basic with some bootstrap mix-ins. Will improve tomorrow.
+These models are integrated into 3 REST API methods GET, POST, DELETE. The AutomobileVO model relies on data from an existing Automobile model in another Django project.
+In order to retrieve this data we used a poller script which successfully queries data using an API endpoint "...inventory-api:8000/api/automobiles".
+This poller will only function if ALLOWED_HOSTS in both projects has each respective services name listed. These names can be found in docker-compose.yaml files.
 
 ### Sales API
 ```
