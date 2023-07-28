@@ -127,7 +127,7 @@ UI/Design is basic with some bootstrap mix-ins. Will improve tomorrow.
 
 
 ## Value Objects
- 
+```
 +-------------------------------------------------------------------------------+
 |                                 AutomobileVO                                  |
 +-------------------------------------------------------------------------------+
@@ -135,5 +135,5 @@ UI/Design is basic with some bootstrap mix-ins. Will improve tomorrow.
 | - `vin`: The vehicle identification number, which is unique for every vehicle |
 | - `sold`: A boolean field that indicates if the vehicle has been sold         |
 +-------------------------------------------------------------------------------+
-
+```
 
