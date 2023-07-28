@@ -127,4 +127,13 @@ UI/Design is basic with some bootstrap mix-ins. Will improve tomorrow.
 
 
 ## Value Objects
- - Identification of value objects for each service goes here
+ 
++-------------------------------------------------------------------------------+
+|                                 AutomobileVO                                  |
++-------------------------------------------------------------------------------+
+| This model contains the following fields:                                     |
+| - `vin`: The vehicle identification number, which is unique for every vehicle |
+| - `sold`: A boolean field that indicates if the vehicle has been sold         |
++-------------------------------------------------------------------------------+
+
+
