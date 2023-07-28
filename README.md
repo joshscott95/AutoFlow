@@ -187,6 +187,18 @@ Ultimately, this setup (along with the 'vip' property on the 'Appointment' model
 | Set Appointment Status to 'finished'  | PUT      |  N/A - body should be empty.                      |
 +---------------------------------------+----------+---------------------------------------------------+
 ```
+### Service Front-End
+```
++----------------------------------------------+----------------------+----------------------------------------------------------------------------------+
+|               Web App Address                |   React Component    |                                    Description                                   |
++----------------------------------------------+----------------------+----------------------------------------------------------------------------------+
+| http://localhost:3000/technicians/           |  TechnicianList.js   |  Allows users to view all technicians.                                           |
+| http://localhost:3000/technicians/create/    |  TechnicianForm.js   |  Allows users to create a new technician VIA a form.                             |
+| http://localhost:3000/appointments/          |  AppointmentList.js  |  Allows users to view active appointments and alter appointment statuses.        |
+| http://localhost:3000/appointments/create/   |  AppointmentForm.js  |  Allows users to create a new appointment VIA a form.                            |
+| http://localhost:3000/appointments/history/  |  ServiceHistory.js   |  Allows users to view all appointments (regardless of status) and search by VIN. |
++----------------------------------------------+----------------------+----------------------------------------------------------------------------------+
+```
 ## Sales microservice
 
 This microservice consists of 4 models:
