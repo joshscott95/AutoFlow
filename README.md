@@ -149,7 +149,7 @@ The Inventory microservice is integrated to both the Service and Sales microserv
 +------------------------------------------+------------------------+---------------------------------------------------------------------+
 ```
 
-## Service microservice
+## Service Microservice
 
 For this microservice, we utilized the following models (and properties) listed below:
 1. Model: 'Technician'
@@ -214,7 +214,7 @@ Ultimately, this setup (along with the 'vip' property on the 'Appointment' model
 | http://localhost:3000/appointments/history/  |  ServiceHistory.js   |  Allows users to view all appointments (regardless of status) and search by VIN. |
 +----------------------------------------------+----------------------+----------------------------------------------------------------------------------+
 ```
-## Sales microservice
+## Sales Microservice
 
 This microservice consists of 4 models:
 - customers
