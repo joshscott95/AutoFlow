@@ -109,14 +109,15 @@ UI/Design is basic with some bootstrap mix-ins. Will improve tomorrow.
 +---------------------------------------+----------+---------------------------------------------------+
 |                Action                 |  Method  |                JSON Body - Example                |
 +---------------------------------------+----------+---------------------------------------------------+
-| Create a Salesperson                  | POST     |  {"first_name": "John", "last_name": "Doe",      |
+| Create a Salesperson                  | POST     |  {"first_name": "John", "last_name": "Doe",       |
 |                                       |          |   "employee_id": "jdoe"}                          |
-| Create a Customer                     | POST     |  {"first_name": "Jane", "last_name": "Doe",      |
+| Create a Customer                     | POST     |  {"first_name": "Jane", "last_name": "Doe",       |
 |                                       |          |   "address": "123 Main St", "phone_number":       |
 |                                       |          |   "123-456-7890"}                                 |
 | Create a Sale                         | POST     |  {"automobile": 1, "salesperson": 1,              |
 |                                       |          |   "customer": 1, "price": 20000}                  |
 +---------------------------------------+----------+---------------------------------------------------+
+
 
 
 ## Value Objects
