@@ -30,7 +30,7 @@ docker-compose up
 4. You can view the CarCar web app in your browser @ http://localhost:3000/.
 ​
 ## Diagram
-    mermaid
+```mermaid
  graph TD;
   React_Frontend-->Django_Backend_Inventory;
   React_Frontend-->Django_Backend_Sales;
@@ -38,6 +38,7 @@ docker-compose up
   Django_Backend_Inventory-->PostgreSQL_Database;
   Django_Backend_Sales-->PostgreSQL_Database;
   Django_Backend_Service-->PostgreSQL_Database;
+```
 
 ​
 ## API Documentation
